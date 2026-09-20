@@ -1,0 +1,8 @@
+Deliverable Worksheet
+----------------------
+
+(DONE) Upload ps2.html to Canvas
+
+(You do not need to upload any images)
+
+URL of ps2.html online: https://tchen94.github.io/CS120/ps2/ps2.html
