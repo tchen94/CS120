@@ -18,31 +18,33 @@ Problem 3:  Get two numbers from the user using prompt() that will represent a r
          * Problem 1
          ***********/
 
-        // Get the users first and last name
-        const firstName = prompt("What is your first name?");
-        const lastName = prompt("What is your last name?");
-        // Using template literals instead of string concat here
-        alert(`Your name is ${firstName} ${lastName}`);
+        function getUserNameAndNumOfChildren() {
+            // Get the users first and last name
+            const firstName = prompt("What is your first name?");
+            const lastName = prompt("What is your last name?");
+            // Using template literals instead of string concat here
+            alert(`Your name is ${firstName} ${lastName}`);
 
-        // Get number of children from user
-        const numOfChildren = parseInt(prompt("How many children do you have?"));
+            // Get number of children from user
+            const numOfChildren = parseInt(prompt("How many children do you have?"));
 
-        // Good candidate for a helper function
-        const finalChildrenSentence = (quantity) => {
-            // Immediately return if user has no children
-            if (quantity === 0) return "You have no children.";
+            // Good candidate for a helper function
+            const finalChildrenSentence = (quantity) => {
+                // Immediately return if user has no children
+                if (quantity === 0) return "You have no children.";
 
-            // Otherwise, check quantity - if it's greater than 1, 
-            // return plural, else return singular
-            if (quantity > 1) {
-                return `You have ${quantity} children.`;
-            } else {
-                return "You have 1 child.";
+                // Otherwise, check quantity - if it's greater than 1, 
+                // return plural, else return singular
+                if (quantity > 1) {
+                    return `You have ${quantity} children.`;
+                } else {
+                    return "You have 1 child.";
+                }
             }
+            const childrenSentence = finalChildrenSentence(numOfChildren);
+            // Display the final sentence
+            document.write(`Problem 1: ${childrenSentence} <br><br>`);
         }
-        const childrenSentence = finalChildrenSentence(numOfChildren);
-        // Display the final sentence
-        document.write(`Problem 1: ${childrenSentence} <br><br>`);
 
         /***********\
          * Problem 2
@@ -74,9 +76,6 @@ Problem 3:  Get two numbers from the user using prompt() that will represent a r
             inputs.forEach(num => console.log(num));
         }
 
-        // Call the function
-        sortNums();
-
         /***********\
          * Problem 3
          ***********/
@@ -104,8 +103,15 @@ Problem 3:  Get two numbers from the user using prompt() that will represent a r
             document.write(`The sum of the numbers in the range is: ${sum}`);
         }
 
-        // Invoke the function for problem 3
-        displayOddNumsAndSum();
+        // Call the functions to execute the problems
+        function executeAllFunctions() {
+            getUserNameAndNumOfChildren();
+            sortNums();
+            displayOddNumsAndSum();
+        }
+
+        // Execute the functions
+        executeAllFunctions();
     </script>
 
 </body>
