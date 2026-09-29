@@ -1,0 +1,113 @@
+<!--Problem 1:  Ask the user for their first name.  Now ask the user for their last name.  (You will need to use prompt() twice). Display the response in a popup (alert) as:  "Your name is <name>" - filling in their full name. 
+
+Now ask the user for the number of children they have. Display the number of children on the page as a grammatically correct sentence ( “You have no children”, “You have 1 child” or “You have 2 children”, etc). Note - this should be displayed on the page (not in a popup)
+
+Problem 2:  Create a program that gets three numbers using prompt() and displays them in the console in order (smallest to largest).  You may not use  a sort function (other than what you create yourself)
+
+Problem 3:  Get two numbers from the user using prompt() that will represent a range (ex., 2 through 20).  Display only odd numbers in the range on the page.  Then display the sum of all of the numbers in the range on the page.  You must do this using only one loop.-->
+
+<html>
+
+<head>
+    <title>PS3</title>
+</head>
+
+<body>
+    <script>
+        /***********\
+         * Problem 1
+         ***********/
+
+        // Get the users first and last name
+        const firstName = prompt("What is your first name?");
+        const lastName = prompt("What is your last name?");
+        // Using template literals instead of string concat here
+        alert(`Your name is ${firstName} ${lastName}`);
+
+        // Get number of children from user
+        const numOfChildren = parseInt(prompt("How many children do you have?"));
+
+        // Good candidate for a helper function
+        const finalChildrenSentence = (quantity) => {
+            // Immediately return if user has no children
+            if (quantity === 0) return "You have no children.";
+
+            // Otherwise, check quantity - if it's greater than 1, 
+            // return plural, else return singular
+            if (quantity > 1) {
+                return `You have ${quantity} children.`;
+            } else {
+                return "You have 1 child.";
+            }
+        }
+        const childrenSentence = finalChildrenSentence(numOfChildren);
+        // Display the final sentence
+        document.write(`Problem 1: ${childrenSentence} <br><br>`);
+
+        /***********\
+         * Problem 2
+         ***********/
+
+        function sortNums() {
+            // Grab 3 numbers from the user
+            const num1 = parseInt(prompt("Enter the first number:"));
+            const num2 = parseInt(prompt("Enter the second number:"));
+            const num3 = parseInt(prompt("Enter the third number:"));
+
+            const inputs = [num1, num2, num3];
+
+            // We can bubble sort the array since we can't use the sort function
+            // Could possibly make this a helper function or more efficient.
+            for (let i = 0; i < inputs.length; i++) {
+                for (let j = 0; j < inputs.length - 1; j++) {
+                    if (inputs[j] > inputs[j + 1]) {
+                        // Swap the numbers
+                        const temp = inputs[j];
+                        inputs[j] = inputs[j + 1];
+                        inputs[j + 1] = temp;
+                    }
+                }
+            }
+
+            // Display it in the console
+            console.log("Problem 2: The numbers in order are:");
+            inputs.forEach(num => console.log(num));
+        }
+
+        // Call the function
+        sortNums();
+
+        /***********\
+         * Problem 3
+         ***********/
+
+        function displayOddNumsAndSum() {
+            // Grab the user's desired range
+            const start = parseInt(prompt("Enter the starting number of the range:"));
+            const end = parseInt(prompt("Enter the ending number of the range:"));
+
+            document.write(`Problem 3: The odd numbers between ${start} and ${end} are:<br>`);
+
+            // Let's calculate the sum and display odd numbers in one loop
+            let sum = 0;
+            for (let i = start; i <= end; i++) {
+                // Add each number to the sum
+                sum += i;
+
+                // Check if odd, if so, display it on the page
+                if (i % 2 !== 0) {
+                    document.write(`${i} is odd. <br>`);
+                }
+            }
+
+            // Finally display the sum
+            document.write(`The sum of the numbers in the range is: ${sum}`);
+        }
+
+        // Invoke the function for problem 3
+        displayOddNumsAndSum();
+    </script>
+
+</body>
+
+</html>
