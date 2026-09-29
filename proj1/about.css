@@ -1,0 +1,70 @@
+h1 {
+    color: #fff;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+    padding-top: 50px;
+}
+
+.band-image-about {
+    padding: 24px 0;
+}
+
+.band-image-about img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.band-description {
+    line-height: 1.6;
+}
+
+.band-image-about img.is-loaded {
+    animation: about-image-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-container h1 {
+    animation: about-text-enter 0.7s ease-out 0.15s both;
+}
+
+.band-description {
+    animation: about-text-enter 0.7s ease-out 0.3s both;
+}
+
+/* ANIMATION FOR THE ABOUT PAGE */ 
+
+@keyframes about-image-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes about-text-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .band-image-about img.is-loaded,
+    .about-container h1,
+    .band-description {
+        animation: none;
+    }
+}
+

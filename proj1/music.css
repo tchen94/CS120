@@ -1,0 +1,127 @@
+/* Allow this page to grow when the table is taller than the window. */
+body {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr;
+    padding-bottom: 80px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    padding: clamp(16px, 3vw, 40px) clamp(8px, 2vw, 32px);
+}
+
+.album-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.album-container table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: clamp(8px, 2vw, 24px);
+}
+
+.album-container td {
+    width: 33.333%;
+    padding: 0;
+    vertical-align: top;
+}
+
+/* Credits to the HIGEDAN official site, I tried to follow their 
+grid design for the albums */
+
+.album-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.album-link {
+    display: block;
+    height: 100%;
+    border-radius: 8px;
+    background-color: #202020;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    animation: album-fade-in 0.6s ease-out both;
+    animation-delay: calc(var(--row-delay, 0s) + var(--column-delay, 0s));
+}
+
+/* Stagger the cards from left to right, then down each row. */
+.album-container tr:nth-child(2) {
+    --row-delay: 0.24s;
+}
+
+.album-container tr:nth-child(3) {
+    --row-delay: 0.48s;
+}
+
+.album-container td:nth-child(2) {
+    --column-delay: 0.08s;
+}
+
+.album-container td:nth-child(3) {
+    --column-delay: 0.16s;
+}
+
+
+.song-title {
+    display: block;
+    padding: 12px 6px 4px;
+    font-size: clamp(12px, 1.5vw, 18px);
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.song-action {
+    display: block;
+    padding: 0 6px 12px;
+    font-size: clamp(10px, 1.2vw, 14px);
+    line-height: 1.4;
+}
+
+/* ANIMATION */
+
+@keyframes album-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (hover: hover) {
+    .album-link:hover {
+        transform: translateY(-4px);
+        color: #d0b22d;
+        box-shadow: 0 0 0 2px #d0b22d, 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.album-link:focus-visible {
+    animation: none;
+    outline: 2px solid #d0b22d;
+    outline-offset: 4px;
+    color: #d0b22d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .album-link {
+        transition: none;
+        animation: none;
+    }
+
+    .album-link:hover {
+        transform: none;
+    }
+}

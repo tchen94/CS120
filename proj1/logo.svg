@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 350" role="img" aria-labelledby="title desc">
+  <title id="title">Official HIGE DANDism</title>
+  <desc id="desc">Three lines of geometric white lettering with a gold paint splash beside HIGE.</desc>
+  <!-- Letter outlines keep the design consistent without requiring a font. -->
+  <g fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" stroke-linecap="square">
+    <!-- OFFICIAL -->
+    <g transform="translate(48 16)">
+      <ellipse cx="30" cy="34" rx="28" ry="34"/>
+      <path d="M80 68V0H120M80 31H115"/>
+      <path d="M144 68V0H184M144 31H179"/>
+      <path d="M208 0V68"/>
+      <path d="M284 8C270-5 237-6 237 34S270 73 284 60"/>
+      <path d="M310 0V68"/>
+      <path d="M336 68L364 0L392 68M345 46H383"/>
+      <path d="M420 0V68H463"/>
+    </g>
+    <!-- HIGE -->
+    <g transform="translate(210 139)" stroke-width="13">
+      <path d="M0 0V68M47 0V68M0 32H47"/>
+      <path d="M97 0V68"/>
+      <path d="M205 9C187-9 148-5 148 34S211 83 211 34H183"/>
+      <path d="M261 0H300M261 0V68H300M261 32H295"/>
+    </g>
+    <!-- DANDISM -->
+    <g transform="translate(48 267)">
+      <path d="M0 0V68H15C60 68 60 0 15 0Z"/>
+      <path d="M67 68L94 0L121 68M76 46H112"/>
+      <path d="M143 68V0L188 68V0"/>
+      <path d="M213 0V68H228C273 68 273 0 228 0Z"/>
+      <path d="M283 0V68"/>
+      <path d="M348 7C325-11 302 4 312 23C318 34 348 36 350 51C354 75 321 75 307 61"/>
+      <path d="M374 68L383 0L418 65L453 0L462 68"/>
+    </g>
+  </g>
+  <!-- An original splash silhouette with scattered droplets and two drips. -->
+  <g fill="#d5a200">
+    <path d="M91 133C79 125 79 112 72 109C63 107 67 126 61 131
+      C55 137 41 123 37 132C33 140 52 147 51 154
+      C51 164 27 161 28 171C30 180 49 171 55 182
+      C60 192 44 202 50 209C58 216 66 198 76 203
+      C87 209 75 232 84 235C95 238 92 210 102 213
+      C109 215 105 229 106 241L107 291Q112 300 118 291L119 228
+      C119 213 129 211 133 222L137 248Q142 256 147 248L146 220
+      C144 205 137 203 144 196C153 185 174 198 178 188
+      C181 178 160 177 159 167C157 157 178 153 174 145
+      C169 136 154 151 146 145C137 137 154 118 145 114
+      C136 110 132 133 121 131C108 129 113 107 103 106
+      C94 106 104 129 91 133Z"/>
+    <circle cx="30" cy="121" r="4"/>
+    <circle cx="56" cy="99" r="5"/>
+    <circle cx="165" cy="112" r="4"/>
+    <circle cx="187" cy="163" r="5"/>
+    <circle cx="30" cy="204" r="5"/>
+    <circle cx="142" cy="269" r="6"/>
+    <circle cx="76" cy="253" r="3"/>
+  </g>
+</svg>

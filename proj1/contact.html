@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact | HIGE DANDism</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <style>
+            body {
+                height: auto;
+                min-height: 100vh;
+                min-height: 100dvh;
+                grid-template-rows: auto 1fr;
+                color: #fff;
+            }
+
+            main {
+                display: grid;
+                place-items: center;
+                padding: clamp(24px, 5vw, 64px) 16px;
+            }
+
+            .contact-container {
+                width: 100%;
+                max-width: 720px;
+                padding: clamp(24px, 5vw, 48px);
+                background-color: #202020;
+                border: 1px solid #454545;
+                border-top: 3px solid #d0b22d;
+                border-radius: 16px;
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+            }
+
+            .contact-container h1 {
+                margin: 0 0 12px;
+                font-size: clamp(32px, 5vw, 44px);
+                font-weight: 400;
+            }
+
+            .contact-intro {
+                margin: 0 0 32px;
+                color: #c5c5c5;
+                line-height: 1.6;
+            }
+
+            .contact-form {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 24px;
+            }
+
+            .form-field {
+                display: grid;
+                align-content: start;
+                gap: 10px;
+                min-width: 0;
+            }
+
+            .message-field,
+            .form-footer {
+                grid-column: 1 / -1;
+            }
+
+            .contact-form label {
+                font-weight: bold;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                min-width: 0;
+                min-height: 48px;
+                padding: 14px 16px;
+                border: 1px solid #777;
+                border-radius: 8px;
+                background-color: #292929;
+                color: #fff;
+                font: inherit;
+                font-size: 16px;
+                line-height: 1.5;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .contact-form textarea {
+                min-height: 160px;
+                resize: vertical;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                border-color: #d0b22d;
+                outline: 2px solid #d0b22d;
+                outline-offset: 2px;
+                box-shadow: 0 0 0 5px rgba(208, 178, 45, 0.12);
+            }
+
+            .form-footer {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .form-footer p {
+                margin: 0;
+                color: #c5c5c5;
+                font-size: 14px;
+            }
+
+            .contact-form button {
+                min-height: 48px;
+                padding: 14px 24px;
+                border: 0;
+                border-radius: 8px;
+                background-color: #d0b22d;
+                color: #202020;
+                font: inherit;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.2s ease, transform 0.2s ease;
+            }
+
+            .contact-form button:hover {
+                background-color: #e3c64b;
+                transform: translateY(-2px);
+            }
+
+            .contact-form button:focus-visible {
+                outline: 2px solid #d0b22d;
+                outline-offset: 4px;
+            }
+
+            @media (max-width: 560px) {
+                .contact-form {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+
+                .contact-form button {
+                    width: 100%;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .contact-form input,
+                .contact-form textarea,
+                .contact-form button {
+                    transition: none;
+                }
+
+                .contact-form button:hover {
+                    transform: none;
+                }
+            }
+        </style>
+    </head>
+    <!-- Navigation -->
+    <body>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="HIGE DANDism Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Form for contacting the band-->
+        <main>
+            <div class="contact-container">
+                <h1 id="contact-heading">Get in touch</h1>
+                <p class="contact-intro">For booking inquiries, collaborations, or a note to the band.</p>
+                <form class="contact-form" aria-labelledby="contact-heading" aria-describedby="form-note">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="_replyto" autocomplete="email" required>
+                    </div>
+                    <div class="form-field message-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-footer">
+                        <p id="form-note">All fields are required.</p>
+                        <button type="submit">Send message</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Tim Chen. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

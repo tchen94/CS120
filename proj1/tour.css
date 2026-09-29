@@ -1,0 +1,123 @@
+body {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    padding: clamp(24px, 5vw, 64px) clamp(16px, 4vw, 64px);
+}
+
+/* Shows on the left with the band photo on the right. */
+.tour-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.upcoming-shows {
+    min-width: 0;
+}
+
+.upcoming-shows h1 {
+    margin: 0 0 28px;
+    font-size: clamp(30px, 3.5vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Adding a small underline below the heading. */
+.upcoming-shows h1::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin-top: 16px;
+    background-color: #d0b22d;
+}
+
+.upcoming-shows table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #202020;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.upcoming-shows th,
+.upcoming-shows td {
+    padding: clamp(10px, 1.5vw, 20px);
+    border: 1px solid #454545;
+    overflow-wrap: anywhere;
+}
+
+.upcoming-shows th {
+    background-color: #333126;
+    color: #d0b22d;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.upcoming-shows th:first-child {
+    width: 28%;
+}
+
+.upcoming-shows th:nth-child(2) {
+    width: 30%;
+}
+
+.upcoming-shows td:first-child {
+    color: #d0b22d;
+    font-weight: bold;
+}
+
+.tour-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Fade in the shows first, followed by the photo. */
+.upcoming-shows,
+.tour-photo {
+    animation: tour-fade-in 0.8s ease-out both;
+}
+
+.tour-photo {
+    animation-delay: 0.2s;
+}
+
+@keyframes tour-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .upcoming-shows,
+    .tour-photo {
+        animation: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .tour-container {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 680px;
+    }
+}
