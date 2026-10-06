@@ -1,0 +1,40 @@
+<html>
+<title>PS4 Question 1</title>
+
+<body>
+    <div id="answer"></div>
+</body>
+<script>
+    // Using a enhanced for loop
+    function countA(numArr, value) {
+        let count = 0;
+        for (num of numArr) {
+            if (num < value) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    // Using filter, the final length is the count of numbers less than the value
+    function countB(numArr, value) {
+        return numArr.filter(num => num < value).length;
+    }
+
+    function testCount() {
+        // Taking example from the problem
+        const numArr = [3, 55, 30, 28, 9, 12];
+        const value = 10;
+        const countAResult = countA(numArr, value);
+        const countBResult = countB(numArr, value);
+
+        document.getElementById("answer").innerHTML = `Count A: ${countAResult} <br> Count B: ${countBResult}`;
+    }
+
+    // Call testCount() directly at the end of the script
+    testCount();
+
+</script>
+
+</html>

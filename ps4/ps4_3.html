@@ -1,0 +1,25 @@
+<html>
+<title>PS4 Question 3</title>
+
+<body>
+    <form>
+        <input type="text" id="name" placeholder="Enter your name">
+        <!-- Not sure if this is what you mean by adding a click to the button-->
+        <input type="button" value="Hello" onclick="speak('Hello')">
+        <input type="button" value="Good Bye" onclick="speak('Good Bye')">
+        <input type="button" value="Greetings" onclick="speak('Greetings')">
+    </form>
+    <div id="answer" style="margin-top: 20px;"></div>
+</body>
+<script>
+    function speak(prefix) {
+        // Get the name from the input box
+        const name = document.getElementById("name").value;
+        // Create the final message
+        const message = `${prefix} ${name}`;
+        // Display the message in the answer div
+        document.getElementById("answer").innerHTML = message;
+    }
+</script>
+
+</html>

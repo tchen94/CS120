@@ -1,0 +1,21 @@
+<html>
+<title>PS4 Question 2</title>
+
+<body>
+    <div id="answer"></div>
+</body>
+<script>
+    // Going to use the names from the problem
+    const names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+
+    // Split the string at the commas to create an array of names
+    const nameArray = names.split(", ");
+
+    // Create a numbered list using map
+    const numberedList = nameArray.map((name) => `<li>${name}</li>`).join("");
+
+    // Display the numbered list in the div
+    document.getElementById("answer").innerHTML = `<ol>${numberedList}</ol>`;
+</script>
+
+</html>

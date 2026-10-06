@@ -1,0 +1,75 @@
+<html>
+<title>PS4 Question 4</title>
+
+<body>
+    <select size="8"></select>
+    <button id="addState" onclick="addState()">Add State</button>
+    <hr>
+    <div id="results" style="border: 1px solid black;"></div>
+    <button id="clearStates" onclick="clearStates()">Clear States</button>
+</body>
+<script>
+    /**
+     * 
+     * Create a <select> element as a list (not a dropdown element- hint, set the size attribute of the <select> to 8 ).
+Create the <select> tag in HTML and then create the <option> tags using JavaScript.  Each option will have the name of a state. Hint: first create an array or the states and then use JS to display the options on the page. The first item should be selected when the page is displayed.
+Using HTML, create a button labeled "Add State"
+Add an <hr> below the list and button.
+Below the <hr> add a div and a button labeled "Clear States" with id="results".  Suggested - add a border to the div
+Interaction: When the user clicks the "Add State" button, the state in the list that is currently selected should "jump" to the results div (and disappear from the upper div).  The user should be able to move any number of states one click at a time.
+If the user clicks "Clear States" the div should be emptied and all states should return to the upper div
+     */
+    const states = ["NY", "NJ", "CT", "MA", "RI", "VT", "NH", "ME"];
+
+    // Display the states in the select element
+    const selectEle = document.querySelector("select");
+
+    // Create the option elements and append them to the select element
+    states.forEach(state => {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        selectEle.appendChild(option);
+    });
+
+    // First item should be selected when the page is displayed
+    const selectedOption = selectEle.options[0];
+    selectedOption.selected = true;
+
+    function addState() {
+        // Get the selected state from the select element
+        const selectedState = selectEle.value;
+        const resultsDiv = document.getElementById("results");
+        const newOption = document.createElement("option");
+        // Create the value 
+        newOption.value = selectedState;
+        newOption.textContent = selectedState;
+        resultsDiv.appendChild(newOption);
+        // Remove the selected option from the original select
+        selectEle.remove(selectEle.selectedIndex);
+        // Select the first option in the select element after removal
+        if (selectEle.options.length > 0) {
+            selectEle.options[0].selected = true;
+        }
+    }
+
+    function clearStates() {
+        const resultsDiv = document.getElementById("results");
+
+        // Move all options back to the select element
+        while (resultsDiv.firstChild) {
+            const option = resultsDiv.firstChild;
+            selectEle.appendChild(option);
+        }
+
+        // Clear the results div
+        resultsDiv.innerHTML = "";
+
+        // Select the first option in the select element after clearing
+        if (selectEle.options.length > 0) {
+            selectEle.options[0].selected = true;
+        }
+    }
+</script>
+
+</html>
