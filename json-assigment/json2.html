@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>JSON 2 - Song List</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        <div id="songList"></div>
+        <script>
+            // Store the song list in a variable
+            let songList = [];
+            
+            // Get all the songs from the JSON with $.get
+            $.get("songs.json", function (data) {
+                songList = data.songs;
+
+                // Display the songs
+                songList.forEach(function (song) {
+                    let songListHTML = "<p><strong>" + song.title + "</strong><br>";
+                    songListHTML += "Artist: " + song.artist + "<br>";
+                    songListHTML += "Genre: " + song.genres.join(", ") + "<br>";
+                    songListHTML += "Released " + song.year + "</p>";
+                    $("#songList").append(songListHTML);
+                });
+            });
+        </script>
+    </body>
+</html>

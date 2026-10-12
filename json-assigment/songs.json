@@ -1,0 +1,70 @@
+{
+  "songs": [
+    {
+      "title": "Carry You",
+      "artist": "Martin Garrix",
+      "year": 2021,
+      "genres": ["electronic", "dance"]
+    },
+    {
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "year": 1976,
+      "genres": ["rock", "classic rock"]
+    },
+    {
+      "title": "I Want It That Way",
+      "artist": "Backstreet Boys",
+      "year": 1999,
+      "genres": ["pop"]
+    },
+    {
+      "title": "Dancing Queen",
+      "artist": "ABBA",
+      "year": 1976,
+      "genres": ["pop", "disco"]
+    },
+    {
+      "title": "End Of the Road",
+      "artist": "Boyz II Men",
+      "year": 1992,
+      "genres": ["R&B", "pop"]
+    },
+    {
+      "title": "Back At One",
+      "artist": "Brian McKnight",
+      "year": 1999,
+      "genres": ["R&B", "pop"]
+    },
+    {
+      "title": "Pretender",
+      "artist": "Official HIGE DANDism",
+      "year": 2019,
+      "genres": ["pop", "rock"]
+    },
+    {
+      "title": "The Nights",
+      "artist": "Avicii",
+      "year": 2014,
+      "genres": ["electronic", "dance"]
+    },
+    {
+      "title": "More Than Words",
+      "artist": "Extreme",
+      "year": 1990,
+      "genres": ["rock", "acoustic"]
+    },
+    {
+      "title": "Make Love To You",
+      "artist": "Boyz II Men",
+      "year": 1994,
+      "genres": ["R&B", "pop"]
+    },
+    {
+      "title": "Generate",
+      "artist": "Eric Prydz",
+      "year": 2016,
+      "genres": ["electronic", "dance"]
+    }
+  ]
+}

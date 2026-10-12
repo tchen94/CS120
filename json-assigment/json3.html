@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>JSON 3 - Song List</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <select id="genre-select"></select>
+        <button id="filter-button">Filter</button>
+        <div id="filtered-results"></div>
+    </body>
+    <script>
+        let songList = [];
+        // Using a Set to store unique genres
+        let genres = new Set();
+
+        // Get all the songs from the JSON with $.get
+        $.get("songs.json", function(data) {
+            songList = data.songs;
+
+            // Grab the genres from the song list
+            songList.forEach(song => {
+                song.genres.forEach(genre => {
+                    genres.add(genre);
+                });
+            });
+            // Create the options for the select element
+            genres.forEach(genre => {
+                $("#genre-select").append(`<option value="${genre}">${genre}</option>`);
+            });
+
+            // Add click event listener to the filter button
+            $("#filter-button").click(function() {
+                const selectedGenre = $("#genre-select").val();
+                const filteredSongs = songList.filter(song => song.genres.includes(selectedGenre));
+                // Clean up the previous results
+                $("#filtered-results").empty();
+                // Display the filtered songs
+                filteredSongs.forEach(song => {
+                    $("#filtered-results").append(`<p>${song.title}</p>`);
+                });
+            })
+
+        })
+    </script>
+</html>
