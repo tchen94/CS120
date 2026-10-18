@@ -4,7 +4,7 @@
 
 ## URL for html online
 
-https://tchen1.github.io/CS120/json-assigment/json.html
+https://tchen94.github.io/CS120/json-assigment/json.html
 
 ## Were there any problems in this assignment you could not complete?
 

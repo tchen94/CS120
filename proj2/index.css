@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1efef;
+    color: #1a1a1b;
+}
+
+/*************\
+* GAME BOARD *
+**************/
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 334px;
+}
+
+.row {
+    display: flex;
+    gap: 6px;
+}
+
+.cell {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 1;
+    border: 2px solid #d3d6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1rem, 8vw, 2rem);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.input-field {
+    width: 100%;
+    min-width: 0;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border: 2px solid #d3d6da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #1a1a1b;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    text-align: center;
+    text-transform: uppercase;
+    caret-color: #1a1a1b;
+}
+
+.input-field:focus {
+    border-color: #6aaa64;
+    outline: 2px solid #6aaa64;
+    outline-offset: 2px;
+}
+
+/**********\
+* KEYBOARD *
+\**********/
+
+.submit-button,
+.restart-button {
+    align-self: center;
+    margin-top: 12px;
+    padding: 12px 28px;
+    min-height: 44px;
+    max-width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background-color: #467c40;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.submit-button:hover,
+.restart-button:hover {
+    background-color: #396634;
+}
+
+.submit-button:active,
+.restart-button:active {
+    background-color: #2d5129;
+}
+
+.submit-button:focus-visible,
+.restart-button:focus-visible {
+    outline: 2px solid #1a1a1b;
+    outline-offset: 3px;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.submit-button:disabled {
+    background-color: #787c7e;
+    cursor: default;
+}
+
+.input-field:disabled {
+    background-color: #e4e5e7;
+    color: #595959;
+}
+
+.keyboard {
+    width: calc(100% - 16px);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Half a key of space on either side staggers the home row. 
+* to match the staggered layout that the actual Wordle uses
+*/
+.keyboard-row:nth-child(2) {
+    margin-inline: 5%;
+}
+
+.key {
+    flex: 1;
+    min-width: 0;
+    height: 58px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background-color: #d3d6da;
+    color: #1a1a1b;
+    font-family: inherit;
+    font-size: clamp(0.75rem, 3vw, 1.25rem);
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.key-wide {
+    flex: 1.5;
+    font-size: 0.75rem;
+}
+
+.key[data-key="BACKSPACE"] {
+    font-size: 1.5rem;
+}
+
+.key:hover {
+    background-color: #bfc3c8;
+}
+
+.key:active {
+    background-color: #aeb3b9;
+}
+
+.key:focus-visible {
+    outline: 2px solid #1a1a1b;
+    outline-offset: 2px;
+}
