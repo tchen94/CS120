@@ -1,4 +1,4 @@
-// Local answer dictionary; the remote list expands the accepted guesses.
+// Fallback dictionary used if the remote word list cannot be loaded.
 export const ANSWER_WORDS = [
   "APPLE", "BEACH", "BRAVE", "BREAD", "BRICK", "CHAIR", "CHARM", "CHEST",
   "CLOUD", "CORAL", "DANCE", "DREAM", "EARTH", "FLAME", "FLOOR", "FROST",
@@ -9,7 +9,7 @@ export const ANSWER_WORDS = [
   "WATER", "WHEAT"
 ];
 
-// Credits to https://github.com/darkermango/5-Letter-words for accepted guesses.
+// Credits to https://github.com/darkermango/5-Letter-words for answers and guesses.
 let wordBankPromise;
 
 const fetchWords = () => {
@@ -33,26 +33,21 @@ const fetchWords = () => {
         return words.map((word) => word.toUpperCase());
       })
       .catch((error) => {
-        wordBankPromise = undefined;
-        throw error;
+        console.warn("Using the local word dictionary:", error);
+        return ANSWER_WORDS;
       });
   }
   return wordBankPromise;
 };
 
 export const fetchWord = async () => {
-  const words = ANSWER_WORDS;
+  const words = await fetchWords();
   const word = words[Math.floor(Math.random() * words.length)];
   console.log(`The word is: ${word}`);
   return word;
 };
 
 export const fetchValidWords = async () => {
-  try {
-    const words = await fetchWords();
-    return new Set([...ANSWER_WORDS, ...words]);
-  } catch (error) {
-    console.warn("Using the local word dictionary:", error);
-    return new Set(ANSWER_WORDS);
-  }
+  const words = await fetchWords();
+  return new Set(words);
 };
