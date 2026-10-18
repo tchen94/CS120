@@ -72,6 +72,16 @@ class Board {
     // Disable autocomplete to prevent browser suggestions
     inputField.autocomplete = "off";
     inputField.maxLength = this.cols;
+    // Input validation to ensure only letters are entered
+    inputField.addEventListener("input", () => {
+      const cleanLetters = (value) =>
+        value.replace(/[^a-z]/gi, "").toUpperCase();
+      const caret = cleanLetters(
+        inputField.value.slice(0, inputField.selectionStart),
+      ).length;
+      inputField.value = cleanLetters(inputField.value).slice(0, this.cols);
+      inputField.setSelectionRange(caret, caret);
+    });
     inputField.classList.add("input-field");
     board.appendChild(inputField);
     this.submitButton = document.createElement("button");
