@@ -1,0 +1,46 @@
+<html>
+    <title>Using API Assignment</title>
+    <body>
+        <div class="pokemon-container"></div>
+    </body>
+    <script>
+        const pokemonName = 'Pikachu';
+        const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+        // Fetch Pokemon data from the API - Using Pikachu
+        fetch(`${apiUrl}`)
+            .then(response => response.json())
+            .then(data => {
+                // Grab the official artwork URL from the API response
+                const artworkUrl = data.sprites.other['official-artwork'].front_default;
+                // Display the image of the pokemon in the container
+                const pokemonContainer = document.querySelector('.pokemon-container');
+                const imgElement = document.createElement('img');
+                imgElement.src = artworkUrl;
+                imgElement.alt = pokemonName;
+                pokemonContainer.appendChild(imgElement);
+                // Display the name of the pokemon below the image
+                const nameElement = document.createElement('p');
+                nameElement.innerHTML = `<strong>Name:</strong> ${pokemonName}`;
+                pokemonContainer.appendChild(nameElement);
+                // Display the type of the pokemon below the name
+                const typeElement = document.createElement('p');
+                const types = data.types.map(typeInfo => typeInfo.type.name).join(', ');
+                typeElement.innerHTML = `<strong>Type:</strong> ${types}`;
+                pokemonContainer.appendChild(typeElement);
+                // Display the abilities of the pokemon below the type
+                const abilitiesElement = document.createElement('p');
+                const abilities = data.abilities.map(abilityInfo => abilityInfo.ability.name).join(', ');
+                abilitiesElement.innerHTML = `<strong>Abilities:</strong> ${abilities}`;
+                pokemonContainer.appendChild(abilitiesElement);
+                // Display the moves of the pokemon below the abilities
+                const movesElement = document.createElement('p');
+                const moves = data.moves.map(moveInfo => moveInfo.move.name).join(', ');
+                movesElement.innerHTML = `<strong>Moves:</strong> ${moves}`;
+                pokemonContainer.appendChild(movesElement);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</html>

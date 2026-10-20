@@ -23,6 +23,9 @@ was getting rid of the input field and instead use the keyboard to
 type in guesses like the actual game. I wanted to add the feature
 to track average score, but I ran out of time.
 
+I'm not a big fan of using alerts to display messages, so I'd like
+to add a feature to display messages on the page instead of using alerts.
+
 ## What is you favorite topic in the the course so far?
 
 I'm really enjoying React and look forward to more projects that
